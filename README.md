@@ -6,6 +6,6 @@ TARank addresses the influential node identification issue from a graph traversa
 ## Usage<br>
 Implementation of TARank is available in Python 3.6.<br>
 
-Import the python code into Pycharm, and then load some datasets to test. By the way, the centrality score dict and the parameter k also could be user-specific. Here, we set k=2 and take closeness centrality for generating the initialize scores. After that complie and run the code. Finally, the result will be obtained.<br>
+Import the python code into Pycharm, and then load some datasets to test. By the way, the centrality score dict and the parameter k also could be user-specific. Here, we set k=2 and use closeness centrality for generating the initialize scores. After that complie and run the code. Finally, the result will be obtained.<br>
 
 In addition, we also provide 53 networks which are used in experiments.
