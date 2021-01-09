@@ -113,7 +113,7 @@ def process():
     movies / personal / russiantrade / SciMet / sep_fall98 / SmaGri / SmallW / StMarks / stormofswords /
     Sylt / world_trade / yeast_ito / Ythan
     """
-    G = nx.read_edgelist("F:/Peggy/node centrality/h-index/data/911.txt", delimiter='\t', nodetype=str)
+    G = nx.read_edgelist("911.txt", delimiter='\t', nodetype=str)
 
     global M, N
     N = G.number_of_nodes()
