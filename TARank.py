@@ -35,27 +35,27 @@ def tree(G, k, cs_dict):
     ccs_degree = {}
     for iterator_node in G.nodes():
         q = Queue(maxsize=0)
-        q.put((1, iterator_node))  # 第一层是待检验节点，加入到queue中
+        q.put((1, iterator_node))  
         #print('node:', iterator_node)
         #print(q.get())
         ccs = [0]  # 累计度数
         ccs.append(cs_dict[iterator_node])
         #print(accu_degree)
         depth = 1
-        vis = {}  # key为节点，dict为节点所在的层数
+        vis = {}  
         c = [0]
         while (q.empty() != True):
             vis.clear()
-            now_node = q.get()  # 取出当前队列中第一个元素
-            vis[now_node[1]] = depth  # 取出元素的层数为depth
+            now_node = q.get()  
+            vis[now_node[1]] = depth  
             nums = 0
-            plus1 = ccs[-1]  # 第一层邻居节点度数累和
+            plus1 = ccs[-1] 
             #print(plus1)
-            for i in G.adj[now_node[1]]:  # 遍历取出元素的邻居
+            for i in G.adj[now_node[1]]:  
                 #print('node:', i)
-                vis[i] = depth + 1   # 取出元素的邻居均加入到vis dict中，value也就是层数均为depth + 1
-                q.put((depth + 1, i))  # 取出元素的邻居节点以及其value放入队列中
-                nums += 1  # 该层节点个数
+                vis[i] = depth + 1   
+                q.put((depth + 1, i)) 
+                nums += 1  
                 plus1 += cs_dict[i]
                 #print(G.degree(i))
             ccs.append(plus1)
@@ -65,21 +65,21 @@ def tree(G, k, cs_dict):
             nums2 = 0
             plus2 = ccs[-1]
             while (q.empty() != True):
-                now_node = q.get()   # 当queue里为待检验节点和树的第二层，第一层邻居挨个取出（2，direct neighbors）
-                if (now_node[0] != depth):  #此时depth=1，而queue里除了待检验节点以外，其他都是一层邻居们，标号均为2
-                    depth = now_node[0]  # depth = 2
+                now_node = q.get()   
+                if (now_node[0] != depth):  
+                    depth = now_node[0]  
                     if len(c) == 0:
                         c.append(nums + nums2 / 2)
                     else:
                         a = int(nums + nums2 / 2 + c[-1])
                         c.append(a)
-                    if depth <= k and plus2 != ccs[-1]: # 控制变量k
+                    if depth <= k and plus2 != ccs[-1]: 
                         ccs.append(plus2)
                     nums = 0
                     nums2 = 0
-                for node in G.adj[now_node[1]]:  #此时开始遍历第一层邻居的邻居，也就是第二层邻居
+                for node in G.adj[now_node[1]]: 
                     if node not in vis:
-                        #未出现在depth层中node，也就是未加入vis中的节点加入vis中，key为node, value为depth+1
+                      
                         vis[node] = depth + 1
                         nums += 1
                         q.put((depth + 1, node))
