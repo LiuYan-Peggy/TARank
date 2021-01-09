@@ -30,7 +30,7 @@ def auc(G, y_vector):
     return final
 
 def tree(G, k, cs_dict):
-    hight = {}  # 每个节点生成树的高度
+    hight = {}  
     level = {}
     ccs_degree = {}
     for iterator_node in G.nodes():
@@ -38,7 +38,7 @@ def tree(G, k, cs_dict):
         q.put((1, iterator_node))  
         #print('node:', iterator_node)
         #print(q.get())
-        ccs = [0]  # 累计度数
+        ccs = [0]  
         ccs.append(cs_dict[iterator_node])
         #print(accu_degree)
         depth = 1
