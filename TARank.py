@@ -102,7 +102,7 @@ def tree(G, k, cs_dict):
     return hight, level, ccs_degree
 
 
-def process(filename):
+def process():
 
     """
     Network name:
@@ -133,7 +133,6 @@ def process(filename):
 
 
 if __name__ == "__main__":
-    filename = "karate.txt"
-    process(filename)
+    process()
 
 
