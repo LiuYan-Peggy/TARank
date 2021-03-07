@@ -1,4 +1,4 @@
-# A Graph Transerval Approach to Identify Influential Nodes in a Network<br>
+# A Graph Traversal Approach to Identify Influential Nodes in a Network<br>
 
 ## Introduction<br>
 TARank addresses the influential node identification issue from a graph traversal perspective, which is totally different from existing methods in the literature. Meanwhile, it provides a general framework for influential node quantification, in which any existing centrality measures can be utilized for generating the final importance score. 
