@@ -118,8 +118,18 @@ def process():
     hight, y_vector = tree(G, k=parameter, cs_dict=dc)
     print(y_vector)
     # print(hight)
-    final = auc(G, y_vector, k=parameter)
-    print(final)
+    c = 0
+    for k, v in y_vector.items():
+        if len(v) < parameter + 1:
+            print(k, v)
+            c += 1
+            break
+    if c == 0:
+        final = auc(G, y_vector, k=parameter)
+        print(final)
+        compare_ic(G, df, sir_rank_list)
+    else:
+        print('the hight of a tree/some trees is/are less than %d' % (parameter))
 
 
 if __name__ == "__main__":
