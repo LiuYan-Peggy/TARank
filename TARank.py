@@ -131,7 +131,6 @@ def process():
     if c == 0:
         final = auc(G, y_vector, k=parameter)
         print(final)
-        compare_ic(G, df, sir_rank_list)
     else:
         print('the hight of a tree/some trees is/are less than %d' % (parameter))
 
